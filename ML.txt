@@ -1,0 +1,76 @@
+Notes
+Linear regression
+It is a supervised ml alg where predicted result is continuous and has a constant slope.
+
+optimization of linear regression
+batch gradient descent-calculates error for each example in training dataset 
+stochastic gradient descent - calculates the loss and updates the model
+mini batch gradient descent-splits training dataset into small batches that are used to calculate model error
+
+
+sklearn data preprocessing 
+from sklearn import preprocessing
+x_normaliz=preprocessiong.normalize(x)
+x_scale=preprocessiong.scale(x)  (this is standardising)
+
+standardization-rescaling data to have a mean of 0 and standard deviation of 1    x' =x-mean/sigma           sigma is standard deviation
+normaization-rescale the value into the range [0,1]  		                    x'=x - x min  /  x max - x min 
+
+
+
+breast cancer detection
+559 instances. that is rows 
+
+data set with 30 features
+data have been feed and trained with svm model.svm separates the two classes.svm finds the best line to separate between the two classes
+it  finds the support vectors points and the line is drawn in such a way that it is having maximum distance between the support vector points
+the dataset i took is available in kaggle
+pd.read_csv('filename')
+i used dataframe from pandas to manage the datas
+data visualization-scatterplot,countplot,pairplot,heatmap are used to check the relationship between the data
+train_test_split from sklearn was imported to split the data and train
+thn svc is used to train the model
+evaluating the model-confusion matrix
+optimization- 
+       feature scaling-also called normalizing
+       c paramater-it controls trade off between classifying training points correctly..small c and large c  
+	small c misclassification is lesser
+	large c there is higher chance of misclassification
+        gamma parameter-controls the influence of single training set
+	small gamma -more generalized
+	large gamma-overfitted
+96% accurate
+and the next optimization is using gridsearchcv
+this will help us to find best value for c and gama..grid.best_params_
+97% accurate..and that 3% is also the non cancer cells predicted as cancerous cell
+
+
+
+
+
+SRCNN-super resolution convolution neural network
+keras,cv2,numpy,matplotlib,skimage
+from keras.models import Sequential
+from keras.layers import Conv2D
+from keras.optimizers import Adam
+from skimage.measure import compare_ssim as ssim
+define a couple of functions that we can use to calculate the PSNR, MSE, and SSIM. 
+The structural similiarity (SSIM) index was imported directly from the scikit-image library; however, we will have to define our own functions for the PSNR and MSE.
+Copy both the Set5 and Set14 datasets into a new folder called 'source'.
+
+Now that we have some images, we want to produce low resolution versions of these same images.
+ We can accomplish this by resizing the images, both downwards and upwards, using OpeCV. 
+There are several interpolation methods that can be used to resize images; however, we will be using bilinear interpolation.
+
+# resize the image - down
+        img = cv2.resize(img, (new_width, new_height), interpolation = cv2.INTER_LINEAR)
+        
+# resize the image - up
+ img = cv2.resize(img, (w, h), interpolation = cv2.INTER_LINEAR)
+
+
+
+ 
+
+
+
